@@ -10,6 +10,11 @@ public class GameUI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (GameStat == null)
+        {
+            GameStat = (GameStats)GameObject.Find("GameStats").GetComponent(typeof(GameStats));
+        }
+
         gameTime = transform.Find("Game Time").gameObject;
         hungerText = transform.Find("Hunger Stat").gameObject;
         happyText = transform.Find("Happy Stat").gameObject;

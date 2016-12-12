@@ -41,7 +41,15 @@ public class BobBehaviour : MonoBehaviour
             // Bob is going to move
             Debug.Log("Bob should move");
 
-            destination = new Vector2((transform.position.x + rnd.Next(3, 7)), transform.position.y);
+            destination = new Vector2((transform.position.x + rnd.Next(-8, 8)), transform.position.y);
+
+            if (destination.x > 26f || destination.x < -22f)
+            {
+                moveTime = 0;
+                lastTime = Time.time;
+                destination.Set(0, 0);
+                return;
+            }
 
             journeyLength = Vector2.Distance((Vector2)transform.position, destination);
 

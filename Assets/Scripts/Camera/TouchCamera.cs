@@ -30,7 +30,7 @@ public class TouchCamera : MonoBehaviour {
 
                 if (trans.x > 0f)
                 {
-                    if (this.transform.position.x < 17f)
+                    if (this.transform.position.x < 20f)
                     {
                         transform.position += transform.TransformDirection(trans);
                     }
@@ -45,6 +45,11 @@ public class TouchCamera : MonoBehaviour {
 
                 oldTouchPositions[0] = newTouchPosition;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
         //else
         //{
@@ -77,5 +82,5 @@ public class TouchCamera : MonoBehaviour {
         //        oldTouchDistance = newTouchDistance;
         //    }
         //}
-	}
+    }
 }

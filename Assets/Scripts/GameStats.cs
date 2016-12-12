@@ -29,7 +29,7 @@ public class GameStats : MonoBehaviour {
 
         startTime = new DateTime(2016, 1, 1) + convertedTime;
 
-        hunger = 100;
+        hunger = 50;
         happiness = 100;
         social = 100;
         tiredness = 100;
@@ -57,25 +57,16 @@ public class GameStats : MonoBehaviour {
         }
 
         double reduction = getHunger();
-        if ((hunger - reduction) > 0)
-        {
-            hunger -= reduction;
-        }
+        hunger = ((hunger - reduction) > 0) ? (hunger - reduction) : 0;
+
         reduction = getHappiness();
-        if ((happiness - reduction) > 0)
-        {
-            happiness -= reduction;
-        }
+        happiness = ((happiness - reduction) > 0) ? (happiness - reduction) : 0;
+
         reduction = getSocial();
-        if ((social - reduction) > 0)
-        {
-            social -= reduction;
-        }
+        social = ((social - reduction) > 0) ? (social - reduction) : 0;
+
         reduction = getTiredness();
-        if ((tiredness - reduction) > 0)
-        {
-            tiredness -= reduction;
-        }
+        tiredness = ((tiredness - reduction) > 0) ? (tiredness - reduction) : 0;
 
         lastTime = currentTime;
 
