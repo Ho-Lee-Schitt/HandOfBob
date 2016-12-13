@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour {
     void Start () {
         if (GameStat == null)
         {
-            GameStat = (GameStats)GameObject.Find("GameStats").GetComponent(typeof(GameStats));
+            GameStat = (GameStats)GameObject.Find("GameController").GetComponent(typeof(GameStats));
         }
 
         gameTime = transform.Find("Game Time").gameObject;
