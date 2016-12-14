@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+// Reference the Unity Analytics namespace
+using UnityEngine.Analytics;
 
-public class GameStats : MonoBehaviour {
+public class GameStats : MonoBehaviour
+{
 
     public int rateOfTime;
     public double rateOfHunger, rateOfHappiness, rateOfSocial, rateOfTiredness;
@@ -26,6 +29,8 @@ public class GameStats : MonoBehaviour {
 
     private bool dialogue;
 
+
+
     enum cookingWith
     {
         nothing = 0, bowl, cooker, toaster
@@ -43,7 +48,8 @@ public class GameStats : MonoBehaviour {
     Nullable<recipeStruct> currentRecipe;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         double gameTimeInSeconds = DateTime.Now.TimeOfDay.TotalSeconds;
 
         TimeSpan convertedTime = TimeSpan.FromSeconds(gameTimeInSeconds * rateOfTime);
@@ -69,9 +75,10 @@ public class GameStats : MonoBehaviour {
 
         //gameTime.GetComponent<Text>().text = "Time: " + gameClock.ToShortTimeString();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         DateTime difference = getGameClock();
         if (currentTime.Hour == 23 && currentTime.Minute == 59)
         {
@@ -92,6 +99,35 @@ public class GameStats : MonoBehaviour {
                 interactions.SetActive(true);
                 background = 0;
                 makeRecipe();
+                if (currentRecipe.Value.ingrediantCount == 2)
+                {
+                    Analytics.CustomEvent("MadeFood", new Dictionary<string, object>
+                    {
+                        { "Ingrediant Count", currentRecipe.Value.ingrediantCount },
+                        { "Cooking Method", currentRecipe.Value.cookingMethod },
+                        { "Ingrediant 1", currentRecipe.Value.ingrediants[0] },
+                        { "Ingrediant 2", currentRecipe.Value.ingrediants[1] },
+                        { "Hunger", hunger },
+                        { "Happiness", happiness },
+                        { "Social", social },
+                        { "Tiredness", tiredness },
+                        { "Day", day }
+                    });
+                }
+                else
+                {
+                    Analytics.CustomEvent("MadeFood", new Dictionary<string, object>
+                    {
+                        { "Ingrediant Count", currentRecipe.Value.ingrediantCount },
+                        { "Cooking Method", currentRecipe.Value.cookingMethod },
+                        { "Ingrediant 1", currentRecipe.Value.ingrediants[0] },
+                        { "Hunger", hunger },
+                        { "Happiness", happiness },
+                        { "Social", social },
+                        { "Tiredness", tiredness },
+                        { "Day", day }
+                    });
+                }
             }
         }
 
@@ -109,8 +145,20 @@ public class GameStats : MonoBehaviour {
 
         lastTime = currentTime;
 
+        if (hunger == 0 || happiness == 0 || tiredness == 0 || social == 0 || hunger < 20 || happiness < 20 || tiredness < 20 || social < 20)
+        {
+            Analytics.CustomEvent("statZero", new Dictionary<string, object>
+            {
+                { "Hunger", hunger },
+                { "Happiness", happiness },
+                { "Social", social },
+                { "Tiredness", tiredness },
+                { "Day", day }
+            });
+        }
+
         // Debug.Log(gameClock.TimeOfDay.ToString());
-	}
+    }
 
     DateTime getGameClock()
     {
@@ -215,30 +263,61 @@ public class GameStats : MonoBehaviour {
         return background;
     }
 
-    public void Bowl()
+    public void interactionSelected(string name)
     {
-        background = 1;
-        currentMethod = cookingWith.bowl;
+        if (String.Compare(name, "Bowl") == 0)
+        {
+            background = 1;
+            currentMethod = cookingWith.bowl;
 
-        ingrediants.SetActive(true);
-        interactions.SetActive(false);
+            ingrediants.SetActive(true);
+            interactions.SetActive(false);
+        }
+        else if (String.Compare(name, "Toaster") == 0)
+        {
+            background = 1;
+            currentMethod = cookingWith.toaster;
+
+            ingrediants.SetActive(true);
+            interactions.SetActive(false);
+        }
+        else if (String.Compare(name, "Cooker") == 0)
+        {
+            background = 1;
+            currentMethod = cookingWith.cooker;
+
+            ingrediants.SetActive(true);
+            interactions.SetActive(false);
+        }
+        else if (String.Compare(name, "PlayVG") == 0)
+        {
+            currentRecipe = new recipeStruct { ingrediants = new string[1] { name }, ingrediantCount = 1, cookingMethod = 0, failure = 0, cooked = true };
+        }
+        else if (String.Compare(name, "PetCat") == 0)
+        {
+            currentRecipe = new recipeStruct { ingrediants = new string[1] { name }, ingrediantCount = 1, cookingMethod = 0, failure = 0, cooked = true };
+        }
+        else
+        {
+
+        }
     }
 
     public void addIngrediant(string ingrediantName)
     {
-        switch(currentMethod)
+        switch (currentMethod)
         {
             case cookingWith.nothing:
                 break;
             case cookingWith.bowl:
                 if (currentRecipe == null)
                 {
-                    currentRecipe = new recipeStruct {ingrediants = new string[2], ingrediantCount = 1, cookingMethod = (int)cookingWith.bowl, cooked = false };
+                    currentRecipe = new recipeStruct { ingrediants = new string[2], ingrediantCount = 1, cookingMethod = (int)currentMethod, cooked = false };
                     currentRecipe.Value.ingrediants[0] = ingrediantName;
                 }
                 else
                 {
-                    recipeStruct newRecipe = new recipeStruct { ingrediants = new string[2], ingrediantCount = 2, cookingMethod = (int)cookingWith.bowl, cooked = false };
+                    recipeStruct newRecipe = new recipeStruct { ingrediants = new string[2], ingrediantCount = 2, cookingMethod = (int)currentMethod, cooked = false };
                     newRecipe.ingrediants[0] = currentRecipe.Value.ingrediants[0];
                     newRecipe.ingrediants[1] = ingrediantName;
 
@@ -248,14 +327,14 @@ public class GameStats : MonoBehaviour {
             case cookingWith.cooker:
                 if (currentRecipe == null)
                 {
-                    currentRecipe = new recipeStruct { ingrediants = new string[1], ingrediantCount = 1, cookingMethod = (int)cookingWith.cooker, cooked = false };
+                    currentRecipe = new recipeStruct { ingrediants = new string[1], ingrediantCount = 1, cookingMethod = (int)currentMethod, cooked = false };
                     currentRecipe.Value.ingrediants[0] = ingrediantName;
                 }
                 break;
             case cookingWith.toaster:
                 if (currentRecipe == null)
                 {
-                    currentRecipe = new recipeStruct { ingrediants = new string[1], ingrediantCount = 1, cookingMethod = (int)cookingWith.toaster, cooked = false };
+                    currentRecipe = new recipeStruct { ingrediants = new string[1], ingrediantCount = 1, cookingMethod = (int)currentMethod, cooked = false };
                     currentRecipe.Value.ingrediants[0] = ingrediantName;
                 }
                 break;
@@ -268,16 +347,109 @@ public class GameStats : MonoBehaviour {
     {
         if (currentRecipe.Value.cookingMethod == (int)cookingWith.bowl)
         {
-            if (currentRecipe.Value.ingrediants[0] == "Milk" && currentRecipe.Value.ingrediants[1] == "Cereal" || currentRecipe.Value.ingrediants[1] == "Milk" && currentRecipe.Value.ingrediants[0] == "Cereal")
+            if ((currentRecipe.Value.ingrediants[0] == "Milk" && currentRecipe.Value.ingrediants[1] == "Cereal") || (currentRecipe.Value.ingrediants[1] == "Milk" && currentRecipe.Value.ingrediants[0] == "Cereal"))
             {
-                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)cookingWith.bowl, failure = 0, cooked = true };
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 0, cooked = true };
+            }
+            else if ((currentRecipe.Value.ingrediants[0] == "Milk" && currentRecipe.Value.ingrediants[1] == "Milk") || (currentRecipe.Value.ingrediants[1] == "Milk" && currentRecipe.Value.ingrediants[0] == "Milk"))
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 1, cooked = true };
+            }
+            else if ((currentRecipe.Value.ingrediants[0] == "Cereal" && currentRecipe.Value.ingrediants[1] == "Cereal") || (currentRecipe.Value.ingrediants[1] == "Cereal" && currentRecipe.Value.ingrediants[0] == "Cereal"))
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 2, cooked = true };
+            }
+            else if ((currentRecipe.Value.ingrediants[0] == "Milk" && (currentRecipe.Value.ingrediants[1] == "Chicken" || currentRecipe.Value.ingrediants[1] == "Chips" || currentRecipe.Value.ingrediants[1] == "Ham")) || (currentRecipe.Value.ingrediants[1] == "Milk" && (currentRecipe.Value.ingrediants[0] == "Chicken" || currentRecipe.Value.ingrediants[0] == "Chips" || currentRecipe.Value.ingrediants[0] == "Ham")))
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 3, cooked = true };
+            }
+            else if ((currentRecipe.Value.ingrediants[0] == "Milk" && currentRecipe.Value.ingrediants[1] == "Porridge") || (currentRecipe.Value.ingrediants[1] == "Milk" && currentRecipe.Value.ingrediants[0] == "Porridge"))
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 4, cooked = true };
+            }
+            else
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[2] { currentRecipe.Value.ingrediants[0], currentRecipe.Value.ingrediants[1] }, ingrediantCount = 2, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 5, cooked = true };
+            }
+        }
+        if (currentRecipe.Value.cookingMethod == (int)cookingWith.toaster)
+        {
+            if (currentRecipe.Value.ingrediants[0] == "Bread")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 0, cooked = true };
+            }
+            else if (currentRecipe.Value.ingrediants[0] == "Milk")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 1, cooked = true };
+            }
+            else if (currentRecipe.Value.ingrediants[0] == "Cereal" || currentRecipe.Value.ingrediants[0] == "Porridge")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 2, cooked = true };
+            }
+            else
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 3, cooked = true };
+            }
+        }
+        if (currentRecipe.Value.cookingMethod == (int)cookingWith.cooker)
+        {
+            if (currentRecipe.Value.ingrediants[0] == "Porridge")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 0, cooked = true };
+            }
+            else if (currentRecipe.Value.ingrediants[0] == "Milk")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 1, cooked = true };
+            }
+            else if (currentRecipe.Value.ingrediants[0] == "Bread")
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 2, cooked = true };
+            }
+            else
+            {
+                currentRecipe = new recipeStruct { ingrediants = new string[1] { currentRecipe.Value.ingrediants[0] }, ingrediantCount = 1, cookingMethod = (int)currentRecipe.Value.cookingMethod, failure = 3, cooked = true };
             }
         }
     }
 
     public void addHunger(float value)
     {
-        hunger = ((hunger + value) < 100f) ? (hunger + value) : 100f;
+        if (value >= 0)
+        {
+            hunger = ((hunger + value) < 100f) ? (hunger + value) : 100f;
+        }
+        else
+        {
+            hunger = ((hunger + value) > 0) ? (hunger + value) : 0f;
+        }
+
+        currentRecipe = null;
+    }
+
+    public void addFun(float value)
+    {
+        if (value >= 0)
+        {
+            happiness = ((happiness + value) < 100f) ? (happiness + value) : 100f;
+        }
+        else
+        {
+            happiness = ((happiness + value) > 0) ? (happiness + value) : 0f;
+        }
+
+        currentRecipe = null;
+    }
+
+    public void addSocial(float value)
+    {
+        if (value >= 0)
+        {
+            social = ((social + value) < 100f) ? (social + value) : 100f;
+        }
+        else
+        {
+            social = ((social + value) > 0) ? (social + value) : 0f;
+        }
 
         currentRecipe = null;
     }

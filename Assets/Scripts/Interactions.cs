@@ -7,6 +7,7 @@ public class Interactions : MonoBehaviour {
     public GameStats controller;
 
     GameObject cat;
+    int moveFinger;
 
     Vector2?[] oldTouchPositions = {
         null,
@@ -17,7 +18,7 @@ public class Interactions : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        moveFinger = -1;
 	}
 	
 	// Update is called once per frame
@@ -26,102 +27,42 @@ public class Interactions : MonoBehaviour {
         if (Input.touchCount == 1)
         {
             Touch tap = Input.touches[0];
+            if (tap.phase == TouchPhase.Moved)
+            {
+                moveFinger = tap.fingerId;
+            }
+
             //foreach (Touch tap in Input.touches)
             if (tap.phase != TouchPhase.Began && tap.phase != TouchPhase.Moved)
             {
                 if (tap.phase == TouchPhase.Ended)
                 {
-                    if (tap.tapCount == 1)
+                    if (tap.tapCount == 1 && Input.touches[0].phase != TouchPhase.Stationary && Input.touches[0].phase != TouchPhase.Moved && tap.fingerId != moveFinger)
                     {
                         Vector2 test = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                         RaycastHit2D hit = Physics2D.Raycast(test, Input.GetTouch(0).position);
 
                         if (!controller.getDialogue())
                         {
-                            if (hit.collider && hit.collider.name == "PetCat")
-                            {
-                                // Pet the cat
-                                cat = GameObject.Find("PetCat").gameObject;
-                                
-                                if (cat.GetComponent<SpriteRenderer>().enabled)
-                                {
-                                    cat.GetComponent<SpriteRenderer>().enabled = false;
-                                }
-                                else
-                                {
-                                    cat.GetComponent<SpriteRenderer>().enabled = true;
-                                }
-                            }
-
-                            if (hit.collider && hit.collider.name == "PlayVG")
-                            {
-                                // Play Video Games
-                                cat = GameObject.Find("PlayVG").gameObject;
-                                cat.GetComponent<SpriteRenderer>().enabled = false;
-                            }
-
-                            if (hit.collider && hit.collider.name == "Bowl")
+                            if (hit.collider && hit.collider.tag == "Interaction")
                             {
                                 // Bowl
-                                controller.Bowl();
+                                controller.interactionSelected(hit.collider.name);
                             }
 
-                            if (hit.collider && hit.collider.name == "Cooker")
-                            {
-                                // Cooker
-                                //controller.Cooker();
-                            }
-
-                            if (hit.collider && hit.collider.name == "Toaster")
+                            if (hit.collider && hit.collider.tag == "Ingrediant")
                             {
                                 // Toaster
-                                //controller.Toaster();
-                            }
-
-                            if (hit.collider && hit.collider.name == "Milk")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Milk");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Ham")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Ham");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Chicken")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Chicken");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Chips")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Chips");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Porrage")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Porrage");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Cereal")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Cereal");
-                            }
-
-                            if (hit.collider && hit.collider.name == "Bread")
-                            {
-                                // Toaster
-                                controller.addIngrediant("Bread");
+                                controller.addIngrediant(hit.collider.name);
                             }
                         }
                     }
                 }
+            }
+
+            if (tap.fingerId == moveFinger && tap.phase == TouchPhase.Ended)
+            {
+                moveFinger = -1;
             }
         }
 

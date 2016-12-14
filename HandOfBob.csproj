@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\GameUI.cs" />
     <Compile Include="Assets\Scripts\GameUIController.cs" />
     <Compile Include="Assets\Scripts\Interactions.cs" />
+    <Compile Include="Assets\Scripts\Narration.cs" />
     <Compile Include="Assets\Scripts\Panel.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\TextController.cs" />
