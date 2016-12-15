@@ -1,0 +1,770 @@
+fileFormatVersion: 2
+guid: 83e6c0fd79a99ca478b2728ca48422d5
+timeCreated: 1481757906
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BobSprites_0
+    21300002: BobSprites_1
+    21300004: BobSprites_2
+    21300006: BobSprites_3
+    21300008: BobSprites_4
+    21300010: BobSprites_5
+    21300012: BobSprites_6
+    21300014: BobSprites_7
+    21300016: BobSprites_8
+    21300018: BobSprites_9
+    21300020: BobSprites_10
+    21300022: BobSprites_11
+    21300024: BobSprites_12
+    21300026: BobSprites_13
+    21300028: BobSprites_14
+    21300030: BobSprites_15
+    21300032: BobSprites_16
+    21300034: BobSprites_17
+    21300036: BobSprites_18
+    21300038: BobSprites_19
+    21300040: BobSprites_20
+    21300042: BobSprites_21
+    21300044: BobSprites_22
+    21300046: BobSprites_23
+    21300048: BobSprites_24
+    21300050: BobSprites_25
+    21300052: BobSprites_26
+    21300054: BobSprites_27
+    21300056: BobSprites_28
+    21300058: BobSprites_29
+    21300060: BobSprites_30
+    21300062: BobSprites_31
+    21300064: BobSprites_32
+    21300066: BobSprites_33
+    21300068: BobSprites_34
+    21300070: BobSprites_35
+    21300072: BobSprites_36
+    21300074: BobSprites_37
+    21300076: BobSprites_38
+    21300078: BobSprites_39
+    21300080: BobSprites_40
+    21300082: BobSprites_41
+    21300084: BobSprites_42
+    21300086: BobSprites_43
+    21300088: BobSprites_44
+    21300090: BobSprites_45
+    21300092: BobSprites_46
+    21300094: BobSprites_47
+    21300096: BobSprites_48
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BobSprites_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_4
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_5
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_6
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_7
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_8
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_9
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_10
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_11
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_12
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_13
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 503
+        width: 82
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_14
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_15
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 503
+        width: 82
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_16
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_17
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 503
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_18
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_19
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_20
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_21
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 503
+        width: 83
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_22
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 327
+        width: 121
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_23
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 326
+        width: 120
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_24
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 325
+        width: 120
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_25
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 323
+        width: 115
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_26
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 320
+        width: 107
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_27
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 320
+        width: 105
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_28
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 322
+        width: 103
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_29
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 321
+        width: 102
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_30
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 320
+        width: 98
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_31
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 170
+        width: 97
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_32
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 173
+        width: 97
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_33
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 172
+        width: 101
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_34
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 171
+        width: 104
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_35
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 177
+        width: 108
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_36
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 179
+        width: 118
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_37
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 178
+        width: 120
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_38
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 177
+        width: 112
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_39
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 174
+        width: 103
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_40
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 105
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_41
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 31
+        width: 105
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_42
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 30
+        width: 99
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_43
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 28
+        width: 96
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 29
+        width: 100
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_45
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 29
+        width: 106
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_46
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 30
+        width: 108
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_47
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 29
+        width: 110
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BobSprites_48
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 31
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

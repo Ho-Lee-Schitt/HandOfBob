@@ -28,8 +28,7 @@ public class GameStats : MonoBehaviour
     cookingWith currentMethod;
 
     private bool dialogue;
-
-
+    private int narration;
 
     enum cookingWith
     {
@@ -72,6 +71,8 @@ public class GameStats : MonoBehaviour
         dialogue = false;
 
         currentRecipe = null;
+
+        narration = PlayerPrefs.GetInt("Narration");
 
         //gameTime.GetComponent<Text>().text = "Time: " + gameClock.ToShortTimeString();
     }
@@ -457,5 +458,17 @@ public class GameStats : MonoBehaviour
     public recipeStruct? getRecipe()
     {
         return currentRecipe;
+    }
+
+    public bool useVoices()
+    {
+        if (narration == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

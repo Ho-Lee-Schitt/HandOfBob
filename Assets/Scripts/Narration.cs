@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Narration : MonoBehaviour {
 
+    public GameStats controller;
+
     AudioSource dream1, dream2, quote1, quote2, quote3, action1, action2, action3, breakfast, makeCereal, makePorridge, makeToast;
 
     void Start()
@@ -24,73 +26,109 @@ public class Narration : MonoBehaviour {
 
     public int playDream1()
     {
-        dream1.Play();
+        if (controller.useVoices())
+        {
+            dream1.Play();
+        }
         return 0;
     }
 
     public int playDream2()
     {
-        dream2.Play();
+        if (controller.useVoices())
+        {
+            dream2.Play();
+        }
         return 0;
     }
 
     public int playQuote1()
     {
-        quote1.Play();
+        if (controller.useVoices())
+        {
+            quote1.Play();
+        }
         return 0;
     }
 
     public int playQuote2()
     {
-        quote2.Play();
+        if (controller.useVoices())
+        {
+            quote2.Play();
+        }
         return 0;
     }
 
     public int playQuote3()
     {
-        quote3.Play();
+        if (controller.useVoices())
+        {
+            quote3.Play();
+        }
         return 0;
     }
 
     public int playAction1()
     {
-        action1.Play();
+        if (controller.useVoices())
+        {
+            action1.Play();
+        }
         return 0;
     }
 
     public int playAction2()
     {
-        action2.Play();
+        if (controller.useVoices())
+        {
+            action2.Play();
+        }
         return 0;
     }
 
     public int playAction3()
     {
-        action3.Play();
+        if (controller.useVoices())
+        {
+            action3.Play();
+        }
         return 0;
     }
 
     public int playMakeProoidge()
     {
-        makePorridge.Play();
+        if (controller.useVoices())
+        {
+            makePorridge.Play();
+        }
         return 0;
     }
 
     public int playBreakfast()
     {
-        breakfast.Play();
+        if (controller.useVoices())
+        {
+            breakfast.Play();
+        }
         return 0;
     }
 
     public int playMakeCereal()
     {
-        makeCereal.Play();
+        if (controller.useVoices())
+        {
+            makeCereal.Play();
+        }
         return 0;
     }
 
     public int playMakeToast()
     {
-        makeToast.Play();
+        if (controller.useVoices())
+        {
+            makeToast.Play();
+        }
         return 0;
     }
 }

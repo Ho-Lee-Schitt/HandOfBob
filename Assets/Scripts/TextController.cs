@@ -348,7 +348,7 @@ public class TextController : MonoBehaviour
                 break;
             case 1:
                 controller.addHunger(5f);
-                textList = new textLine[0];
+                textList = new textLine[1];
                 textList[0] = new textLine { textString = "Milk is generally not very exciting. So it's no surprise once warmed doesn't really get any better.", timing = 3f };
                 break;
             case 2:
@@ -422,7 +422,7 @@ public class TextController : MonoBehaviour
                 controller.addSocial(20f);
                 textList = new textLine[3];
                 textList[0] = new textLine { textString = "As Bob reaches his hand out to pet his cat it hisses fiercely and claws at his hand.", timing = 5f };
-                textList[1] = new textLine { textString = "Once again Bob feels happy from the warmth that come from a sharing a deep friendship with an animal.", timing = 5f };
+                textList[1] = new textLine { textString = "Once again Bob feels happy from the warmth that comes from a sharing a deep friendship with an animal.", timing = 5f };
                 textList[2] = new textLine { textString = "The warmth was of course the blood oozing from the fresh cuts on his hand.", timing = 5f };
                 break;
             case 2:
@@ -441,7 +441,7 @@ public class TextController : MonoBehaviour
                 break;
         }
 
-        StartCoroutine(displayText(textList, true, currentDuration + 3f));
+        StartCoroutine(displayText(textList));
     }
 
     void playVideoGames()
@@ -452,7 +452,7 @@ public class TextController : MonoBehaviour
         textList[1] = new textLine { textString = "What he doesn't understand is the game console he is playing with is a washing machine.", timing = 5f };
         textList[2] = new textLine { textString = "He even takes it out for a spin every now and again.", timing = 5f };
 
-        StartCoroutine(displayText(textList, true, currentDuration + 3f));
+        StartCoroutine(displayText(textList));
     }
 
     IEnumerator displayText(textLine[] textList, bool startWait = false, float startWaitTime = 0f, Func<int> myMethod = null)
